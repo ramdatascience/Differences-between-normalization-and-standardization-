@@ -1,0 +1,26 @@
+Some algorithms pre-assume that our data is centred at “0”. For example, if we initialize the weights of a small multi-layer perceptron with tanh activation units to 0 or small random values centred around zero, we want to update the model weights “equally.” As a rule of thumb I wouldd say: When in doubt, just standardize the data.
+
+In the overall knowledge discovery process, before data mining itself, data preprocessing plays a crucial role. One of the first steps concerns the normalization of the data. This step is very important when dealing with parameters of different units and scales. For example, some data mining techniques use the Euclidean distance. Therefore, all parameters should have the same scale for a fair comparison between them. Two methods are usually well known for rescaling data
+
+Normalization:
+
+Also known as min-max scaling or min-max normalization, is the simplest method and consists in rescaling the range of features to scale the range in [0, 1] or [−1, 1]. Selecting the target range depends on the nature of the data. 
+
+x′=  x−min(x) / max(x)−min(x)
+
+It will be useful when we are sure enough that there are no anomalies (i.e. outliers) with extremely large or small values. For example, in a recommender system, the ratings made by users are limited to a small finite set like {1,2,3,4,5}
+.
+In some situations, we may prefer to map data to a range like [−1,1]
+with zero-mean.2 Then we should choose mean normalization.
+
+x′=       x−mean(x)/max(x)−min(x)
+           
+In this way, it will be more convenient for us to use other techniques like matrix factorization.
+
+Standardization
+
+In machine learning, we can handle various types of data, e.g. audio signals and pixel values for image data, and this data can include multiple dimensions. Feature standardization makes the values of each feature in the data have zero-mean (when subtracting the mean in the numerator) and unit-variance. This method is widely used for normalization in many machine learning algorithms (e.g., support vector machines, logistic regression, and artificial neural networks)
+
+x′= x−μ / σ
+
+  Where x is the original feature vector, μ is the mean of that feature vector, and σ is its standard deviation. 
